@@ -34,7 +34,3 @@ npm test
 
 ## Questions
 If you have any questions about the project, please email me at knhopkinson23@gmail.com
-
-Merge branch 'main' of https://github.com/knmbua/README_generator
-
-Resolved conflicts and merged changes from the remote repository.
