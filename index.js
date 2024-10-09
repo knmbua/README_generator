@@ -6,27 +6,28 @@ import generateMarkdown from './utils/generateMarkdown.js';
 // TODO: Create an array of questions for user input
 const questions = [
     {
+        type: 'input',
         name: 'title',
         message: 'Please enter the name of the app:'
     },
     {
+        type: 'input',
         name: 'description',
         message: 'Please provide app description:'
     },
     {
-        name: 'problem',
-        message: 'What problem does this app solve?:'
-    },
-    {
+        type: 'input',
         name: 'installation',
         message: 'Please enter process to install this app:'
     },
     {
+        type: 'input',
         name: 'usage',
         message: 'Please provide steps for usage:'
     },
     {
-        name: 'collaborators',
+        type: 'input',
+        name: 'credits',
         message: 'Please provide collaborators:'
     },
     {
@@ -34,6 +35,11 @@ const questions = [
         name: 'license',
         message: 'Please choose a license:',
         choices: ['MIT', 'GPLv3', 'Apache 2.0', 'BSD 3-Clause', 'None']
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Please provide testing instructions:'
     },
     {
         type: 'input',
@@ -54,12 +60,14 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then((answers) => {
-        const markdown = generateMarkdown(answers);
-        writeToFile('README.md', markdown);
-    }).catch((error) => {
-        console.log(error);
-    });
+    inquirer.prompt(questions)
+        .then((answers) => {
+            const markdown = generateMarkdown(answers);
+            writeToFile('README.md', markdown);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 }
 
 // Function call to initialize app
